@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            width: 60%;
+            margin: 20px auto;
+            list-style: none;
+            overflow: hidden;
+            position: relative;
+        }
+        ul li{
+            text-align: center;
+            float: left;
+            margin-right: 30px;
+        }
+        ul li a{
+            text-decoration: none;
+            color: cadetblue;
+            display: block;
+            line-height: 35px;
+        }
+        div{
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background: lightcoral;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><a href="#">home</a><div></div></li>
+    <li><a href="#">about</a><div></div></li>
+    <li><a href="#">summerme</a><div></div></li>
+    <li><a href="#">springimging</a><div></div></li>
+    <li><a href="#">gallary</a><div></div></li>
+</ul>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/velocity.min.js"></script>
+<script>
+    $("li").hover(function(){
+        var oL=$(this).position().left;
+        var oW=$(this).outerWidth();
+        $(this).find("div").css({ width: oW+"px",left: oL-15+"px", display:"block"});
+        $(this).find("div").velocity({left: oL+"px"});
+        $(this).velocity("reverse");
+    },function(){
+        $(this).find("div").css({display:"none"},{easing:"ease-in"});
+    })
+</script>
+</body>
+</html>

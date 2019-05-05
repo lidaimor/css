@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body{margin:0;}
+ul{margin:0; padding:0; list-style:none; height:35px;margin:200px 200px 0;}
+li{width:35px; float:left;  height:35px; cursor:pointer; border:1px #FC3 solid;
+    margin-right:10px; border-radius:8px;transition:all 0.4s;}
+li.active{background-color:#FC3;}
+li:hover{transform:scale(1.1,1.1);}
+.box div{height:50px; padding:50px;}
+p{margin:0; padding:5px 200px; font-size:30px;}
+</style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <!--<li class="active"></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <li v-for="u,index of arr"
+        :class="{active:n>=index}"
+        @click="change(index)"></li>
+    </ul>
+<p>{{arr[n]}}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+    var app = new Vue({
+        el : '.box',
+        data : {
+            arr : ["很差","一般","不错","很好","满意"],
+            n : 0
+        },
+        methods : {
+            change(index){
+                this.n = index;
+            }
+        }
+    })
+</script>
+</body>
+</html>

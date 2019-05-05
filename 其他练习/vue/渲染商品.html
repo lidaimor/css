@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <style>
+        p{
+            width: 100%;
+            background: lightseagreen;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 45px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p>添加品牌</p>
+    <div class="panel-body form-inline">
+        <label>
+            Id:
+            <input type="text" class="form-control" v-model="id"/>
+        </label>
+        <label>
+            Name:
+            <input type="text" class="form-control" v-model="name" @keyup.enter="add"/>
+        </label>
+        <input type="button" class="btn btn-primary" value="添加" @click="add"/>
+        <label>
+            搜索名称关键字：
+            <input type="text" class="form-control" v-model="keywords" v-color v-focus>
+        </label>
+    </div>
+    <table class="table table-bordered table-hover table-striped">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Ctime</td>
+            <td>Operation</td>
+        </tr>
+        <tr v-for="item in search(keywords)" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.time | dataFormate }}</td>
+            <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+        </tr>
+    </table>
+</div>
+<script>
+    Vue.directive("color",{
+        bind: function(el){
+            el.style.color = 'red';
+        }
+    });
+    Vue.directive("focus",{
+        inserted: function(el){
+            el.focus();
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            id: "",
+            name: "",
+            keywords: [],
+            list: [
+                {id: 1,name: "宝马",time: new Date()},
+                {id: 2,name: "奔驰",time: new Date()},
+            ],
+        },
+        methods: {
+            add(){
+                var car = {id: this.id ,name: this.name, time: new Date()}
+                this.list.push(car);
+                this.id = '';
+                this.name = '';
+            },
+            del(id){
+                this.list.some((item,i)=>{
+                    if(item.id == id){
+                        this.list.splice(i,1);
+                        return true;
+                    }
+                })
+            },
+            search(keywords){
+                // var newList = [];
+                // this.list.forEach(item=>{
+                //     if(item.name.indexOf(keywords) != -1){
+                //         newList.push(item);
+                //     }
+                // })
+                // return newList;
+                return this.list.filter(item=>{
+                    if(item.name.includes(keywords)){
+                        return item;
+                    }
+                })
+            }
+        },
+        filters: {
+            dataFormate: function(data){
+                var y = data.getFullYear();
+                var m = (data.getMonth()+1).toString().padStart(2,'0');
+                var d = data.getDate().toString().padStart(2,'0');
+                var hh = data.getHours().toString().padStart(2,'0');
+                var mm = data.getMinutes().toString().padStart(2,'0');
+                var ss = data.getSeconds().toString().padStart(2,'0');
+                return y+'-'+m+'-'+d+' '+' '+hh+':'+mm+':'+ss
+            }
+        }
+    })
+</script>
+</body>
+</html>

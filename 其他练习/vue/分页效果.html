@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .box {
+            margin: 100px;
+        }
+
+        .page, .prev, .next {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .page:hover, .prev:hover, .next:hover, .page.active {
+            color: #6CF;
+        }
+
+        .prev.disabled, .next.disabled {
+            cursor: not-allowed;
+            color: #ccc;
+        }
+
+        .prev.disabled:hover, .next.disabled:hover {
+            color: #ccc;
+        }
+
+        .jump input {
+            width: 40px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box" onselectstart="return false">
+    <div class="pagination">
+        <span class="total">共 {{n}} 条 / {{n/num}} 页</span>
+        <span class="prev"
+              :class="{disabled : a == 1}"
+              @click="pre()"><</span>
+        <span v-for="u,index of n/num"
+              :class="{page : true , active : a == index+1}"
+              @click="change(index+1)">{{index+1}}</span>
+        <span class="next"
+              :class="{disabled : a == n/num}"
+              @click="net()">></span>
+        <span class="jump">
+        	前往<input type="text" v-model="a"/>页
+        </span>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+    var app = new Vue({
+        el: ".box",
+        data: {
+            n: 60,
+            num: 10,
+            a: 1
+        },
+        methods: {
+            change(index) {
+                this.a = index;
+            },
+            pre() {
+                this.a=Math.max(--this.a,1);
+            },
+            net() {
+                this.a=Math.min(++this.a,this.n/this.num);
+            }
+        }
+    })
+</script>
+</body>
+</html>

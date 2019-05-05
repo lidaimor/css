@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0; padding: 0}
+        body{
+            padding: 30px;
+        }
+        main{
+            position: relative;
+            overflow: hidden;
+        }
+        #cur{
+            width: 100px;
+            height: 10px;
+            background-color: #666;
+            position: relative;
+            margin: 15px 0;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            left: 35px;
+        }
+
+        #cur div {
+            width: 15px;
+            height: 15px;
+            background-color: lightseagreen;
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            border-radius: 50%;
+        }
+
+        #vol{
+            width: 100px;
+            height: 10px;
+            background-color: lightslategray;
+            position: relative;
+            border-radius: 5px;
+            margin-top: 13px;
+            left: 35px;
+        }
+
+        #vol div {
+            width: 15px;
+            height: 15px;
+            background-color: coral;
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            border-radius: 50%;
+        }
+        span{
+            display: inline-block;
+            margin-right: 6px;
+        }
+        p{
+            float: left;
+            margin-top: 8px;
+        }
+        p img{
+            display: block;
+        }
+        main ul{
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            width: 340px;
+        }
+        main ul li{
+            width: 50%;
+        }
+        main button{
+            width: 25px;
+            height: 25px;
+            border: none;
+            background: url("img/q1.png") no-repeat;
+            background-size: 100%;
+            margin-left: 150px;
+        }
+        main button:hover{
+            background: url("img/q2.png") no-repeat;
+            background-size: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<video>
+    <source src="Intermission-Walk-in_512kb.mp4">
+    <source src="Intermission-Walk-in.ogv" >
+</video><br>
+<main>
+    <span>00:00:00</span>/
+    <span>00:00:00</span>
+    <button></button>
+    <ul>
+        <li>
+            <p><img src="img/play.png" width="25" height="25"/></p>
+            <div id="cur">
+                <div></div>
+            </div>
+        </li>
+        <li>
+            <p><img src="img/vol.png" width="25" height="25"/> </p>
+            <div id="vol">
+                <div></div>
+            </div>
+        </li>
+    </ul>
+</main>
+<script>
+    window.onload = function () {
+        var ov = document.querySelector('video');
+        var aBtn = document.querySelectorAll("img");
+        var aDiv = document.querySelectorAll("div");
+        var aS = document.querySelectorAll("span");
+        var aImg = document.querySelectorAll("img");
+        var bt = document.querySelector("button");
+        var timer = null;
+        // var time;
+
+        function showTime(){
+            var nowtime = ov.currentTime;
+            var h = Math.floor(nowtime/3600);
+            var m = Math.floor(nowtime%3600/60);
+            var s = Math.round(nowtime%60);
+            aS[0].innerHTML = addZ(h)+":"+addZ(m)+":"+addZ(s);
+            aDiv[1].style.left = (aDiv[0].offsetWidth-aDiv[1].offsetWidth)*ov.currentTime / ov.duration +"px";
+        }
+
+        function addZ(num){
+            return num>10 ? ''+num : '0'+num;
+        }
+
+        aBtn[0].onclick = function () {
+            if (ov.paused) {
+                ov.play();
+                timer = setInterval(showTime,1000);
+                aImg[0].src='img/pause.png';
+
+            } else {
+                ov.pause();
+                clearInterval(timer);
+                aImg[0].src='img/play.png';
+            }
+        }
+        aBtn[1].onclick = function () {
+            if (ov.muted) {
+                ov.muted = false;
+                aImg[1].src='img/vol.png';
+            } else {
+                ov.muted = true;
+                aImg[1].src='img/no.png';
+            }
+        }
+
+        aDiv[0].onclick = function(ev){
+            ev = ev || event;
+            var nowL = ev.clientX - aDiv[0].offsetLeft - 35;
+            aDiv[1].style.left = nowL + "px";
+            ov.currentTime = ov.duration * nowL / (aDiv[0].offsetWidth-aDiv[1].offsetWidth);
+            showTime();
+        }
+
+        aDiv[2].onclick = function(ev){
+            ev = ev || event;
+            var nowL = ev.clientX - aDiv[2].offsetLeft - 35;
+            aDiv[3].style.left = nowL + "px";
+            // console.log(nowL);
+            if(nowL / (aDiv[2].offsetWidth-aDiv[3].offsetWidth)>=0 &&
+                nowL / (aDiv[2].offsetWidth-aDiv[3].offsetWidth)<=1){
+                ov.volume = nowL / (aDiv[2].offsetWidth-aDiv[3].offsetWidth);
+            }
+        }
+
+        bt.onclick = function(){
+            var userAgent = navigator.userAgent;
+            if (userAgent.indexOf("Firefox") > -1) {
+                ov.mozRequestFullScreen();
+            }
+            if (userAgent.indexOf("Chrome") > -1){
+                ov.webkitRequestFullScreen();
+            }
+        };
+
+        ov.oncanplaythrough=function(){
+            var time = ov.duration;
+            var h = Math.floor(time/3600);
+            var m = Math.floor(time%3600/60);
+            var s = Math.round(time%60);
+            aS[1].innerHTML = addZ(h)+":"+addZ(m)+":"+addZ(s);
+        }
+
+        aDiv[1].onmousedown = function (ev) {
+            ev = ev || event;
+            var disX = ev.clientX - this.offsetLeft;
+            document.onmousemove = function (ev) {
+                ev = ev || event;
+                var oL=ev.clientX - disX;
+                if(oL<0)
+                    oL=0;
+                if(oL>aDiv[0].offsetWidth-aDiv[1].offsetWidth)
+                    oL=aDiv[0].offsetWidth-aDiv[1].offsetWidth;
+                aDiv[1].style.left = oL + "px";
+                ov.currentTime = ov.duration * oL / (aDiv[0].offsetWidth-aDiv[1].offsetWidth);
+                showTime();
+            }
+            document.onmouseup = function(){
+                this.onmousemove=this.onmouseup=null;
+            }
+        }
+        aDiv[3].style.left = aDiv[2].offsetWidth-aDiv[3].offsetWidth +"px";
+        aDiv[3].onmousedown = function (ev) {
+            ev = ev || event;
+            var disX = ev.clientX - this.offsetLeft;
+            document.onmousemove = function (ev) {
+                ev = ev || event;
+                var oL=ev.clientX - disX;
+                if(oL<0){
+                    oL=0;
+                    aImg[1].src='img/no.png'
+                }
+                if(oL>aDiv[2].offsetWidth-aDiv[3].offsetWidth)
+                    oL=aDiv[2].offsetWidth-aDiv[3].offsetWidth;
+                if(oL>0){
+                    aImg[1].src='img/vol.png'
+                }
+                aDiv[3].style.left = oL + "px";
+                ov.volume = oL / (aDiv[2].offsetWidth-aDiv[3].offsetWidth);
+            }
+            document.onmouseup = function(){
+                this.onmousemove=this.onmouseup=null;
+            }
+            return false;
+        }
+    }
+
+</script>
+</body>
+</html>

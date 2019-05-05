@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: cadetblue;
+        }
+
+        #c1 {
+            background-color: #fff;
+            display: block;
+            margin: 0 auto;
+        }
+
+        span {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<canvas id="c1" width="600" height="600">
+    <span>不支持canvas的浏览器</span>
+</canvas>
+<script>
+    var oC = document.querySelector("canvas");
+    var oGC = oC.getContext('2d');
+    var x = 300;
+    var y = 300;
+    var r = 200;
+
+    function toDraw() {
+        var oDate = new Date();
+        var oHour = oDate.getHours();
+        var oMin = oDate.getMinutes();
+        var oSen = oDate.getSeconds();
+
+        var oHourVal = (-90 + oHour * 30 + oMin / 2) * Math.PI / 180;
+        var oMinVal = (-90 + oMin * 6 + oSen / 10) * Math.PI / 180;
+        var oSenVal = (-90 + oSen * 6) * Math.PI / 180;
+        //绘制小刻度
+        oGC.beginPath();
+        for (var i = 0; i < 60; i++) {
+            oGC.moveTo(x, y);
+            oGC.arc(x, y, r, i * 6 * Math.PI / 180, (i + 1) * 6 * Math.PI / 180, false);
+        }
+        oGC.closePath();
+        oGC.stroke();
+
+        //绘制白色表盘
+        oGC.fillStyle = 'white';
+        oGC.beginPath();
+        oGC.moveTo(x, y);
+        oGC.arc(x, y, 19 / 20 * r, 0, 360 * Math.PI / 180, false);
+        oGC.closePath();
+        oGC.fill();
+
+        //绘制大刻度
+        oGC.beginPath();
+
+        for (var i = 0; i < 12; i++) {
+            oGC.moveTo(x, y);
+            oGC.arc(x, y, r, i * 30 * Math.PI / 180, (i + 1) * 30 * Math.PI / 180, false);
+        }
+        oGC.closePath();
+        oGC.stroke();
+
+        //绘制小白盘
+        oGC.fillStyle = 'white';
+        oGC.beginPath();
+        oGC.moveTo(x, y);
+        oGC.arc(x, y, 18 / 20 * r, 0, 360 * Math.PI / 180, false);
+        oGC.closePath();
+        oGC.fill();
+
+        //时针
+        oGC.lineWidth = 5;
+        oGC.beginPath();
+        oGC.moveTo(x, y);
+        oGC.arc(x, y, 10 / 20 * r, oHourVal, oHourVal, false);
+        oGC.closePath();
+        oGC.stroke();
+
+        //分针
+        oGC.lineWidth = 3;
+        oGC.beginPath();
+        oGC.moveTo(x, y);
+        oGC.arc(x, y, 15 / 20 * r, oMinVal, oMinVal, false);
+        oGC.closePath();
+        oGC.stroke();
+
+        //秒针
+        oGC.lineWidth = 1;
+        oGC.beginPath();
+        oGC.moveTo(x, y);
+        oGC.arc(x, y, 18 / 20 * r, oSenVal, oSenVal, false);
+        oGC.closePath();
+        oGC.stroke();
+
+    }
+    setInterval(toDraw,1000)
+    toDraw();
+
+
+</script>
+</body>
+</html>

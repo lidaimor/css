@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+body,div,img,p{
+    margin:0;
+    padding:0;
+}
+img{
+    display: block;
+}
+body{
+    background-color: #202020;
+}
+.img1{
+    margin: 30px auto;
+}
+body .wrap{
+    margin-left: 360px;
+}
+body .wrap div{
+    background: url("../img/card_bg.jpg");
+    float: left;
+    border: 1px solid gray;
+    width: 160px;
+    border-radius: 10px;
+    padding-bottom: 60px;
+}
+body .wrap div img{
+    width: 144px;
+    height: 144px;
+    margin: 0 auto;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+body .wrap div p{
+    padding-left: 15px;
+    line-height: 29px;
+    font-size: 12px;
+    color: #797873;
+}
+body .wrap div h2{
+    font-size: 24px;
+    text-align: center;
+}
+body .wrap div:nth-of-type(1){
+    transform: rotate(-20deg) translate(150px,50px);
+    transform-origin: 160px 486px;
+}
+body .wrap div:nth-of-type(2){
+    transform: rotate(-10deg) translate(20px,0);
+    transform-origin: 160px 486px;
+}
+body .wrap div:nth-of-type(3){
+    transform: translate(-110px,10px);
+    z-index: 2;
+}
+body .wrap div:nth-of-type(4){
+    transform: rotate(10deg) translate(-240px,40px);
+    transform-origin: 0px 486px;
+}
+body .wrap div:nth-of-type(5){
+    transform: rotate(20deg) translate(-360px,125px);
+    transform-origin: 0px 486px;
+}
+

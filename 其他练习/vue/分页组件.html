@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .box {
+            margin: 100px;
+        }
+
+        .page, .prev, .next {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .page:hover, .prev:hover, .next:hover, .page.active {
+            color: #6CF;
+        }
+
+        .prev.disabled, .next.disabled {
+            cursor: not-allowed;
+            color: #ccc;
+        }
+
+        .prev.disabled:hover, .next.disabled:hover {
+            color: #ccc;
+        }
+
+        .jump input {
+            width: 40px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <pagination></pagination>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.component('pagination',{
+        props: ["n","num","page"],
+        data(){
+          return {
+              pages: Math.ceil(this.n/this.num)
+          }
+        },
+        template: `
+            <div class="pagination">
+            <span class="total">共 {{n}} 条 / {{pages}} 页</span>
+            <span class="prev"
+                  :class="{disabled : page == 1}"
+                  @click="pre()"><</span>
+
+            <span v-for="u,index of n/num"
+                  :class="{page : true , active : page == index}"
+                  @click="change(index)">{{index+1}}</span>
+
+            <span class="next"
+                  :class="{disabled : page == n/num-1}"
+                  @click="net()">></span>
+
+            <span class="jump">
+                前往<input type="text" v-model="a"/>页
+            </span>
+    </div>
+        `
+    })
+    var app1 = new Vue({
+        el: ".box",
+        data: {
+            n: 40,
+            num: 10,
+            page1: 1
+        },
+        methods: {
+            change(index) {
+                this.page1 = index;
+            },
+            pre() {
+                this.page1--;
+            },
+            net() {
+                this.page1++;
+            }
+        },
+        watch: {
+            a: function (x) {
+                this.page1 = x;
+            }
+        }
+    })
+</script>
+</body>
+</html>

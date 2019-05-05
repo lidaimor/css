@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件嵌套</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/react-dom.min.js"></script>
+    <script src="../js/react.min.js"></script>
+    <script type="text/babel">
+        var MessageBox = React.createClass({
+            render:function(){
+                return(
+                    <div>
+                        <h1>你好世界</h1>
+                        <Submessage/>
+                    </div>
+                )
+            }
+        });
+        var Submessage = React.createClass({
+            render:function(){
+                return (
+                    <div>
+                        <h3>写代码很有意思！</h3>
+                        <Footer/>
+                    </div>
+                )
+            }
+        });
+        var Footer = React.createClass({
+            render:function(){
+                return( <small>因为我们在用代码创造！</small> )
+            }
+        });
+        ReactDOM.render(
+            document.getElementById("app")
+        );
+    </script>
+</body>
+</html>

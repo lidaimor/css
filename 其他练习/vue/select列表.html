@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <select v-model="sel">
+        <option>选择一个网站</option>
+        <option value="www.baidu.com">baidu</option>
+        <option value="www.google.com">google</option>
+    </select>
+    <br>
+
+    <span>选中的网站为：{{sel}}</span>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            sel: ''
+
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/cart.css"/>
+    <script src="js/lib/vue.js"></script>
+    <script src="js/lib/vue-resource.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+</head>
+<body>
+<header class="clearfix">
+    <div class="line"></div>
+    <span class="tit">购物车</span>
+    <div class="line"></div>
+</header>
+<main>
+    <div class="row list">
+        <div class="col-md-3">商品信息</div>
+        <div class="col-md-2">商品金额</div>
+        <div class="col-md-3">商品数量</div>
+        <div class="col-md-2">总金额</div>
+        <div class="col-md-2">编辑</div>
+    </div>
+    <div class="row detail" id="app">
+        <div class="col-md-3 product">
+            <input type="checkbox"/>
+            <img src="img/p1.jpg" width="120" height="80"/>
+            <span>精品图书</span>
+            <!--<p>赠送：<span>签字笔 </span></p>-->
+        </div>
+        <div class="col-md-2 money">
+            <span>￥19</span>
+        </div>
+        <div class="col-md-3 num">
+            <button>+</button>
+            <input type="text" value="0"/>
+            <button>-</button>
+        </div>
+        <div class="col-md-2 all">
+            <span>0.00</span>
+        </div>
+        <div class="col-md-2 del">
+            <img src="img/del.png" width="25" height="25"/>
+        </div>
+    </div>
+    <hr/>
+    <input type="checkbox"/>
+    <span class="pick">全选</span>
+    <span class="unpick">取消全选</span>
+    <button class="pay">结账</button>
+</main>
+<script src="js/cart.js"></script>
+</body>
+</html>

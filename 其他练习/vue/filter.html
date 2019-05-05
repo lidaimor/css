@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <p class="p1">{{msg | msgFormat('a+++','ken')}}</p>
+</body>
+<script>
+    Vue.filter("msgFormat" , function(msg,str,str2){
+        return msg.replace(/哈哈/g,str+str2);
+    })
+    var vm = new Vue({
+        el: '.p1',
+        data: {
+            msg: "你好哈哈，我是娃哈哈，他叫嘻嘻哈哈",
+        },
+        methods:{
+
+        },
+        filters: {
+            msgFormat: function(msg,str,str2){
+                return msg.replace(/哈哈/g,str+str2+'~~~');
+            }
+        }
+    })
+</script>
+</html>

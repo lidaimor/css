@@ -1,0 +1,131 @@
+body,p,h1,h2,h3,h4,h5,h6,div,ul,li,img,a{
+	margin: 0;
+	padding: 0;
+}
+*{ box-sizing: border-box; }
+ul{ list-style: none; }
+a{ text-decoration: none; }
+.clearfix:before,.clearfix:after{
+	content: "";
+	display: block;
+}
+.clearfix:after{
+	clear: both;
+}
+nav{
+	background-color: #e44d45;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+nav a{
+	font-size: 34px;
+	color: #fff;
+	line-height: 110px;
+	width: 25%;
+}
+nav h1{
+	font-size: 38px;
+	color: #fff;
+	line-height: 110px;
+	width: 50%;
+	text-align: center;
+}
+nav div{
+	width: 25%;
+}
+nav div img{
+	margin-top: 50px;
+	cursor: pointer;
+}
+main .sea{
+	height: 351px;
+	background: url(../img/pic1.jpg) no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+}
+main .sea .wrap{
+	padding: 0 20px;
+	height: 80px;
+	background-color: #928a77;
+	display: flex;
+	justify-content: space-between;
+	opacity: 0.6;
+}
+main .sea div.wrap img.img1{
+	width: 32px;
+	height: 40px;
+	margin-top: 18px;
+}
+main .sea .in{
+	width: 78.0219%;
+	border: 1px solid #ffffff;
+	height: 43px;
+	margin-top: 15px;
+	border-radius: 23px;
+}
+main .sea .wrap .in img{
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+	width: 23px;
+	height: 23px;
+	cursor: pointer;
+}
+main .sea .wrap .in input{
+	width: 60%;
+	height: 100%;
+	margin-left: 20px;
+	padding: 4px;
+	background-color: rgba(255,255,255,0);
+	border: none;
+	color: #fff;
+	font-size: 14px;
+}
+main .sea .wrap .in input:focus{
+	outline: none;
+}
+main ul.sel{
+	display: flex;
+	justify-content: space-around;
+	padding: 17px 0 15px 0;
+}
+main ul.sel li{
+	width: 20%;
+	line-height: 113px;
+	text-align: center;
+	color: #fff;
+	border-radius: 38px;
+	font-size: 22px;
+}
+main ul.sel li:nth-child(1){
+	background-color: #e34a42;
+}
+main ul.sel li:nth-child(2){
+	background-color: #b48c51;
+}
+main ul.sel li:nth-child(3){
+	background-color: #f49ba1;
+}
+main ul.sel li:nth-child(4){
+	background-color: #f5b44e;
+}
+main div.divide{
+	width: 100%;
+	height: 11px;
+	background-color: #eeeeee;
+}
+main ul.pic{
+	width: 94.791%;
+	padding: 0 2.6045%;
+	margin: 20px auto;
+	/*display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;*/
+}
+main ul.pic li{
+	float: left;
+	width: 50%;
+}
+
+

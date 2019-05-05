@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function pow(x) {return x * x;}
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // var newArr=arr.map(pow);
+    // console.log(newArr);
+    // var arr = [1, 2, 4, 5, 6, 9, 10, 15];
+    // var r = arr.filter(function (x) {
+    //     return x % 2 !== 0;});
+    // console.log(r); // [1, 5, 9, 15] 删除数组中数据为偶数的项
+    var arr = ['A', '', 'B', null, undefined, 'C', '  '];
+    var r = arr.filter(function (s) {
+        return s && s.trim();});// 注意：IE9以下的版本没有trim()方法
+    console.log(r); // ['A', 'B', 'C'] 把数组中的无效字符串删掉
+</script>
+</body>
+</html>

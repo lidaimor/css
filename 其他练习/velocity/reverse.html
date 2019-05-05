@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div id="div2"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/velocity.min.js"></script>
+<script>
+    $("div").velocity({width:"+=400px",height:"-=50",backgroundColor:"#666"},
+        {delay: 500, duration:500,
+            // begin: function(){alert('begin velocity')}, complete: function(){alert(123)}
+        }).velocity({opacity: "0.5"}).velocity({rotateX: "180deg",scaleY:2.0});
+    $("div").velocity("stop",true);
+    $("div").velocity("reverse");
+
+    $("#div2").velocity({
+        rotateY: "180deg",
+        scaleX: 2.0,
+    },1000);
+    $("#div2").velocity("reverse");
+</script>
+</body>
+</html>

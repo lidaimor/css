@@ -1,0 +1,35 @@
+*{
+	box-sizing: border-box;
+}
+body,button,div,img{
+	margin: 0;
+	padding: 0;
+}
+body{
+	position: relative;
+}
+img{
+	display: block;
+}
+button{
+	border: 1px solid #666;
+	padding: 5px;
+	font-size: 14px;
+	border-radius: 4px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background-color: snow;
+}
+button:focus{
+	outline: none;
+	opacity: 0.6;
+}
+div{
+	width: 70px;
+	height: 70px;
+	/*border-radius: 50%;
+	background-color: lightcoral;*/
+	position: absolute;
+	left: 200px;
+	top: 160px;
+}

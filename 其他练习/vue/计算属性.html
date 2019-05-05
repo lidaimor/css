@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+{{site}}
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            name: 'Google',
+            url: 'http://google.com'
+        },
+        computed: {
+            site:{
+                get: function(){
+                    return this.name+' '+this.url;
+                },
+                set: function(newValue){
+                    var names = newValue.split(" ");
+                    this.name = names[0];
+                    this.url = names[names.length-1]
+                }
+            }
+        }
+    })
+    vm.site = '菜鸟教程  http://www.baidu.com';
+    console.log('name:'+vm.name);
+    console.log('url:'+vm.url);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <video controls>
+        <source src="Intermission-Walk-in_512kb.mp4">
+    </video>
+<script>
+    var ov=document.querySelector('video');
+    ov.onmouseover=function(){
+        this.play();
+    }
+    ov.onmouseout=function(){
+        this.pause();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    千米：<input type="text" v-model="kilometers"/>
+    米：<input type="text" v-model="meters"/>
+</div>
+<p id="info"></p>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#box",
+        data: {
+            kilometers: 0,
+            meters: 0
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+        watch: {
+            kilometers: function(val){
+                this.kilometers = val;
+                this.meters = val*1000;
+            },
+            meters: function(val){
+                this.kilometers = val/1000;
+                this.meters = val;
+            }
+        }
+    });
+    vm.$watch('kilometers',function(newValue,oldValue){
+        document.getElementById('info').innerHTML = '修改前的值为：'+ oldValue +
+            '，修改之后的值为：'+newValue;
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <audio controls src="johann_sebastian_bach_air.mp3"></audio>
+    <span></span>
+<script>
+    var oAu=document.getElementsByTagName('audio')[0];
+    var oSpan=document.getElementsByTagName('span')[0];
+    oAu.currentTime = 60;
+    oAu.autoplay = true;
+    oAu.loop = true;
+    function showTime(){
+        var num=oAu.currentTime;
+        var h=Math.floor(num/3600);
+        var m=Math.floor(num%3600/60);
+        var s=Math.round(num%60);
+        oSpan.innerHTML=h+":"+m+":"+s;
+        setTimeout(arguments.callee,1000);
+    }
+    showTime();
+
+
+
+
+</script>
+</body>
+</html>

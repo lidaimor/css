@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+    var r = arr.filter(function (element, index, self) {
+        return self.indexOf(element) === index;
+    });//总是返回第一个
+    console.log(r);
+</script>
+</body>
+</html>

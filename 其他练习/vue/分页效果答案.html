@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body{margin:0;}
+.box{margin:100px;}
+.page,.prev,.next{margin:0 10px; cursor:pointer;}
+.page:hover,.prev:hover,.next:hover,.page.active{color:#6CF;}
+.prev.disabled,.next.disabled{cursor:not-allowed; color:#ccc;}
+.prev.disabled:hover,.next.disabled:hover{color:#ccc;}
+.jump input{width:40px; margin:0 10px;}
+</style>
+</head>
+<body>
+<div class="box">
+	<!--<div class="pagination">
+    	<span class="total">共 400 条 / 40 页</span>
+        <span class="prev disabled"><</span>
+        <span class="page active">1</span>
+        <span class="page">2</span>
+        <span class="page">3</span>
+        <span class="next">></span>
+        <span class="jump">
+        	前往<input type="text"/>页
+        </span>
+    </div>-->
+    <!--<pagination :total="100" :prepage="12" v-model="page1"></pagination>
+    <pagination :total="35" :prepage="6" v-model="page2"></pagination>-->
+    <pagination 
+    :total="100" 
+    :prepage="12" 
+    :page="page1" 
+    @change="parentChange1"
+    @add="parentAdd1"
+    @reduce="parentreduce1"></pagination>
+
+    <pagination 
+    :total="35" 
+    :prepage="6" 
+    :page="page2" 
+    @change="parentChange2"
+    @add="parentAdd2"
+    @reduce="parentreduce2"></pagination>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+Vue.component('pagination',{
+	props : ['total','prepage','page'], //'value' v-model默认接收
+	data(){
+		return {
+			pages : Math.ceil(this.total/this.prepage)
+		}
+	},
+	template:`
+	<div class="pagination" onselectstart="return false;">
+    	<span class="total">共 {{total}} 条 / {{pages}} 页</span>
+        <span class="prev"
+		:class="{disabled : page==1}"
+		@click="reduce(page)">&lt;</span>
+        <span class="page"
+		v-for="p of pages"
+		:class="{'active' : p==page}"
+		@click="change(p)">{{p}}</span>
+        <span class="next"
+		:class="{disabled : page==pages}"
+		@click="add(page,pages)">&gt;</span>
+        <span class="jump">
+        	前往<input type="text" v-model="page"/>页
+        </span>
+    </div>
+	`,
+	methods : {
+/*		change(p){
+			//this.page = p;
+			this.$emit("input",p)
+		}*/
+		change(p){
+			this.$emit("change",p);
+		},
+		add(p,ps){
+			p==ps||this.$emit("add",p);
+		},
+		reduce(p){
+			p==1||this.$emit("reduce",p);
+		}
+	}
+})
+new Vue({
+	el : ".box",
+	data : {
+		page1 : 1,
+		page2 : 2
+	},
+	methods:{
+		parentChange1(p){
+			this.page1 = p;
+		},
+		parentChange2(p){
+			this.page2 = p;
+		},
+		parentAdd1(p){
+			this.page1 = ++p;
+		},
+		parentAdd2(p){
+			this.page2 = ++p;
+		},
+		parentreduce1(p){
+			this.page1 = --p;
+		},
+		parentreduce2(p){
+			this.page2 = --p;
+		}
+	}
+})
+</script>
+</body>
+</html>
