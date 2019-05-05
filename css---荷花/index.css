@@ -1,0 +1,84 @@
+*{margin:0; padding: 0; box-sizing: border-box;}
+.clearfix:before,.clearfix:after{display: block; content: ""}
+.clearfix:after{clear:both;}
+.wrapper{
+	width: 100%;
+}
+.header{
+	width: 702px;
+	margin:0 auto;
+}
+.header ul{
+	list-style: none;
+	background-color: #a5b382;
+	height: 28px;
+	padding: 0 50px;
+	border:1px solid black;
+	/*margin-top: -4px;*/      /*这里为什么有一行空白  内联块  解析换行符*/
+	font-size: 14px;
+}
+.header img{display: block;}
+.header ul li{
+	float:left;
+	display: block;
+	width: 95px;
+	line-height: 28px;
+}
+.li1{
+	margin-left:30px;
+}
+.main{
+	width:701px;
+	margin: 0 auto; 
+	border-left:1px solid black;
+	border-right:1px solid black;
+}
+.main h1{
+	font-size: 24px;
+	margin-bottom: 15px;
+}
+.left{
+	width: 210px;
+	float:left;
+	padding: 15px 20px;
+	font-size: 8px;
+}
+.title{
+	color: #0ea0f6;
+}
+.left ul{
+	list-style: none;
+}
+.right{
+	width: 470px;
+	float:right;
+	font-size: 8px;
+	padding: 15px 18px;
+}
+.right h1{
+	margin-bottom: 5px;
+	font-size: 24px;
+}
+.right p{
+	line-height: 24px;
+	text-align: justify;
+}
+.img{
+	border:1px solid black;
+	height: 185px;  /* 为什么不设置高度  高度会变大  应该是由内容撑开的才对  同上 image 是内联块  会解析换行符*/
+	padding: 4px;
+	float:left;
+}
+.footer{
+	width: 701px;
+	margin:0 auto;
+	height: 45px;
+	border:1px solid black;
+	background-color: #a5b382;
+	font-size: 8px;
+}
+.foot{
+	width: 296px;
+	float: right;
+	line-height: 20px;
+}

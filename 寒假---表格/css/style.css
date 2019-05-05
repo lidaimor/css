@@ -1,0 +1,131 @@
+.clearfix:before,.clearfix:after{
+	display: block; content: " "
+}
+.clearfix:after{clear: both;}
+body{
+	background-color: #f2f2f2;
+	padding: 30px 0 38px 0;
+}
+.title{
+	width: 720px;
+	margin: 0 auto;
+	padding: 24px 62px 20px;
+	border:1px solid #e0e0e0;
+	background-color: #ffffff;
+}
+.title span{
+	font-size: 12px;
+	color: #666666;
+	display: inline-block;
+	margin-right: 11px;
+}
+.title select{
+	width: 105px;
+}
+.title select:nth-of-type(1){
+	margin-right: 7px;
+}
+.title select:nth-of-type(2){
+	margin-right: 35px;
+}
+button{
+	margin-left: 35px;
+	background:url(../img/btn_bg.jpg) repeat-x;
+	width: 58px;
+	border:none;
+	border: 1px solid #707070;
+	border-radius: 2px;
+}
+ul{
+	width: 720px;
+	margin:0 auto;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	border-bottom: none;
+	padding: 18px 220px 18px 185px;
+	background-color: #fff;
+}
+ul li{
+	float: left;
+	margin-right: 16px;
+}
+ul li:last-child{
+	margin-right: 0;
+}
+ul li span{
+	color: #333333;
+	font-size: 12px;
+}
+ul li img{
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+table{
+	background-color: #e7e7e7;
+	width: 720px;
+	margin: 0 auto;
+	text-align: center;
+}
+table tr{
+	background-color: #fff;
+}
+table tr:nth-of-type(1){
+	text-align: center;
+	font-size: 11px;
+}
+table tr:nth-of-type(1) td{
+	color: #326801;
+}
+table tr:nth-of-type(1) td:nth-child(1),
+table tr:nth-of-type(1) td:nth-child(2),
+table tr:nth-of-type(1) td:nth-child(3){
+	width: 82px;
+	height: 25px;
+}
+table tr:nth-of-type(1) td:nth-child(4){
+	width: 30px;
+}
+table tr:nth-of-type(1) td:last-child{
+	width: 75px;
+}
+table tr:nth-of-type(1) td:nth-child(5),
+table tr:nth-of-type(1) td:nth-child(6),
+table tr:nth-of-type(1) td:nth-child(7),
+table tr:nth-of-type(1) td:nth-child(8),
+table tr:nth-of-type(1) td:nth-child(9),
+table tr:nth-of-type(1) td:nth-child(10),
+table tr:nth-of-type(1) td:nth-child(11){
+	width: 49px;
+}
+table tr td:nth-child(1){
+	height: 77px;
+}
+table tr:nth-of-type(2) td:nth-child(4),
+table tr:nth-of-type(3) td:nth-child(1),
+table tr:nth-of-type(4) td:nth-child(1),
+table tr:nth-of-type(5) td:nth-child(4),
+table tr:nth-of-type(6) td:nth-child(1),
+table tr:nth-of-type(7) td:nth-child(1),
+table tr:nth-of-type(8) td:nth-child(4),
+table tr:nth-of-type(9) td:nth-child(1),
+table tr:nth-of-type(10) td:nth-child(1),
+table tr:nth-of-type(11) td:nth-child(4),
+table tr:nth-of-type(12) td:nth-child(1),
+table tr:nth-of-type(13) td:nth-child(1),
+table tr:nth-of-type(14) td:nth-child(4),
+table tr:nth-of-type(15) td:nth-child(1),
+table tr:nth-of-type(16) td:nth-child(1){
+	height: 25px;
+}
+table p{
+	font-size: 14px;
+	color: #4ca100;
+	margin-bottom: 12px;
+}
+table span{
+	color: #4ca100;
+}
+table img{
+	margin: 6px 0 0 14px;
+}

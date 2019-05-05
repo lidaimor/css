@@ -1,0 +1,146 @@
+*{ box-sizing: border-box;}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,form,table{
+	margin: 0;padding: 0;}
+a,img{ border: none;}
+img{ border: 0;}
+li{ list-style: none;}
+a{text-decoration:none; color:#000000; border:0;}
+.clearfix:before,.clearfix:after{
+	display: block; content: " "}
+.clearfix:after{ clear: both; }
+.clearfix{ *zoom:1;}
+
+body{
+	padding: 13px 0 3px 0;
+	background-color: #fff;
+}
+form{
+	width: 570px;
+	margin: 0 auto;
+	position: relative;
+}
+form span{
+	font-size: 13px;
+	color: #666666;
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	position: relative;
+}
+form p{
+	font-size: 13px;
+	color: #666666;
+	margin-bottom: 22px;
+}
+form p a{
+	color: #0082cb;
+	margin-left: 5px;
+}
+form span div{
+	position: absolute;
+	right: 55px;
+	top: 2px;
+	color: #ff0000;
+}
+form span.sexs{
+	color: #333333;
+	display: inline;
+	/*margin-bottom: 20px;*/
+}
+form input.rsex{
+	width: 11px;
+	height: 11px;
+}
+form .explain{
+	font-size: 11px;
+	color: #333333;
+	background-color: #f1ffd4;
+	float: right;
+	border-radius: 5px;
+	padding: 6px 7px;
+}
+form .exp{
+	width: 78px;
+    float: left;
+    margin-left: -4px;
+    text-align: left;
+}
+form input.int{
+	height: 54px;
+}
+form input{
+	width: 226px;
+	height: 28px;
+	margin-bottom: 17px;
+}
+input:focus{
+	border: none;
+	border: 1px solid #a5c760;
+	background-color: #f4ffd4;
+}
+form select{
+	margin-bottom: 20px;
+}
+form ul li,form .sel a{
+	font-size: 11px;
+	color: #0082cb;
+}
+form .sel{
+	right: 150px;
+	position: absolute;
+}
+form .sel1{
+	top: 52px;
+}
+form .sel2{
+	top: 162px;
+    right: 185px;
+}
+form .sel3{
+	top: 206px;
+    right: 173px;
+}
+form .sel4{
+	top: 251px;
+}
+form .sel5{
+	top: 295px;
+}
+form .sel6{
+	top: 339px;
+}
+form ul{
+	display: none;
+}
+form .sel a:hover+ul{
+	display: block;
+}
+form .btn{
+	border:none;
+	border-radius: 2px;
+	width: 52px;
+	height: 23px;
+	background-color: #72c151;
+	color: #ffffff;
+	/*margin-top: 20px;*/
+	margin-left: 54px;
+}
+hr{
+	width: 226px;
+	margin-left: 73px;
+}
+form p.p1{
+	margin-left: 70px;
+	margin-top: 10px;
+	font-size: 11px;
+	color: #666666;
+}
+form span.iden{
+	width: 50px;
+	color: #333333;
+}
+form span.num{
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,248 @@
+body{
+	background: url(../img/body_bg.jpg) repeat-x;
+}
+.top{
+	width: 1126px;
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+}
+.top .banner{
+	margin-bottom: 3px;
+}
+.top button{
+	position: absolute;
+	top: 255px;
+	left: 220px;
+	width: 250px;
+	height: 50px;
+	border-radius: 19px;
+	border: none;
+	background: url(../img/btn-bg.jpg) repeat-x;
+}
+.top button a{
+	display: block;
+	width: 250px;
+}
+.top img{
+	float: left;
+	margin-left: 18px;
+}
+.top span{
+	font-size: 26px;
+	font-family: "宋体";
+	color: #fff;
+	font-weight: bold;
+	margin-left: -20px;
+}
+.top span span{
+	color: #ffdf04;
+}
+main{
+	width: 1125px;
+	margin: 0 auto;
+	border: 1px solid #cacaca;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+main aside{
+	width: 230px;
+	float: left;
+}
+main aside .login{
+	width: 230px;
+	border: 5px solid #d3d1bc;
+	border-radius: 5px;
+	background-color: #eae6cd;
+	padding: 10px;
+	position: relative;
+}
+main aside .login input:nth-of-type(1),
+main aside .login input:nth-of-type(2){
+	width: 127px;
+	height: 21px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+}
+main aside .login input:nth-of-type(3){
+	width: 70px;
+	height: 47px;
+	background-color: #595853;
+	color: #dededc;
+	border: none;
+	border-radius: 2px;
+	position: absolute;
+	top: 11px;
+	right: 10px;
+	font-size: 15px;
+}
+main aside .login input:nth-of-type(4){
+	width: 16px;
+	height: 16px;
+}
+main aside .login a{
+	font-size: 13px;
+	color: #030100;
+	line-height: 16px;
+}
+main aside .login a:nth-of-type(2){
+	margin-right: 30px;
+	margin-left: 22px;
+}
+main aside .login a:hover{
+	color: #666;
+}
+main aside ul.type{
+	padding: 10px 30px 6px 34px;
+	border: 3px solid #e2e4e3;
+	border-radius: 4px;
+}
+main aside  ul.type li{
+	width: 80px;
+	margin-bottom: 5px;
+	float: left;
+}
+main aside  ul.type li a{
+	font-size: 14px;
+	display: inline-block; 
+	width: 70px;
+}
+main aside h2{
+	font-family: "宋体";
+	font-size: 16px;
+	color: #565656;
+	margin-top: 16px;
+	margin-bottom: 6px;
+}
+main aside .list{
+	padding: 10px 9px 7px 8px;
+	border: 3px solid #e2e4e3;
+	border-radius: 4px;
+}
+main aside .list{
+	list-style: none;
+	font-size: 14px;
+	margin-bottom: 73px;
+}
+main aside .list li{
+	height: 24px;
+	line-height: 24px;
+}
+content{
+	float: right;
+	width: 880px;
+}
+content ul.pic{
+	width: 877px;
+}
+content .pic li{
+	list-style: none;
+	float: left;
+	margin-right: 3px;
+}
+content .pic li:last-child{
+	margin-right: 0;
+}
+content .music{
+	margin-top: 6px;
+}
+content .music .mp3{
+	float: left;
+	width: 620px;
+}
+content .music .photo{
+	float: right;
+	width: 250px;
+}
+content .music p{
+	padding-left: 24px;
+	line-height: 38px;
+	background-color: #e6e2d9;
+	color: #454138;
+	border-radius: 4px;
+	font-size: 18px;
+	font-family: "华文楷体";
+	font-weight: bold;
+}
+content .music .mp3 ul{
+	list-style: none;
+}
+content .music .mp3 ul li{
+	line-height: 32px;
+	border: 1px dotted #ccc;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	font-size: 14px;
+}
+content .music .mp3 ul li span:nth-of-type(1){
+	width: 20px;
+	line-height: 14px;
+	color: #f4ffdf;
+	display: inline-block;
+	text-align: center;
+	border-radius: 2px;
+	height: 14px;
+	background-color: #9a9a9a;
+	margin-right: 6px;
+}
+content .music .mp3 ul li:nth-child(1) span:nth-of-type(1),
+content .music .mp3 ul li:nth-child(2) span:nth-of-type(1),
+content .music .mp3 ul li:nth-child(3) span:nth-of-type(1){
+	background-color: #93b20f;
+}
+content .music .mp3 ul li span:last-child{
+	display: inline-block;
+	float: right;
+	background-color: #9bbd20;
+	width: 37px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #3e462e;
+	border: 1px solid #8ba25c;
+	border-radius: 2px;
+	margin-top: 5px;
+	margin-right: 5px;
+	font-size: 8px;
+}
+content .music .mp3 ul li span:nth-child(2){
+	display: inline-block;
+	width: 90px;
+	margin-right: 50px;
+}
+content .music .mp3 ul li span:nth-child(3){
+	display: inline-block;
+	width: 42px;
+	margin-right: 100px;
+}
+content .music .mp3 ul li span:nth-child(4){
+	display: inline-block;
+}
+content .music .photo ul{
+	list-style: none;
+	/*margin-top: 7px;*/
+}
+content .music .photo ul li{
+	margin-top: 7px;
+}
+footer{
+	width: 1125px;
+	margin:0 auto;
+	padding: 20px 0 26px 0;
+}
+footer div{
+	width: 176px;
+	padding: 10px 30px 34px 30px;
+	border-right-color:#e2e2e2; 
+	border-right-width:1px;
+	border-right-style: solid;
+	float: left;
+	margin-right: 6px;
+}
+footer p{
+	font-size: 14px;
+	line-height: 24px;
+	color: #9f9f9f;
+}

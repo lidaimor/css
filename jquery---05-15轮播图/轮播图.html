@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+	<style type="text/css">
+		body,div,ul,li,img{margin:0; padding:0;}
+		.wrap{width: 400px; height: 480px; margin:20px auto; position: relative; overflow: hidden; }
+		.in{ position: absolute; left: 0; top:0; overflow: hidden; }
+		img{ display: block; float: left;}
+		ul{ list-style: none; position: absolute; left: 150px; top: 430px; text-align: center; height: 20px;}
+		ul li{ float: left; margin-right: 10px; }
+		ul.nav li img{ width: 15px; height: 15px; }
+		.wrap>i{ position: absolute; top: 200px; color: olive; font-size: 50px; width: 30px; text-align: center;display: none;}
+		.wrap:hover i{ display: block; }
+		.wrap>i:nth-of-type(1){ left: 15px; }
+		.wrap>i:nth-of-type(2){ right: 15px; }
+		.wrap>i:hover{  border-radius: 4px; background-color: rgba(0,0,0,0.7); color:#556B2F; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="in">
+			<img src="img/1.png" width="400" height="480" class="img1" />
+			<img src="img/2.png" width="400" height="480" class="img1" />
+			<img src="img/3.png" width="400" height="480" class="img1" />
+			<img src="img/4.png" width="400" height="480" class="img1" />
+		</div>
+		<ul class="nav">
+
+		</ul>
+		<i class="fa fa-angle-left"></i>
+		<i class="fa fa-angle-right"></i>
+	</div>
+<script src="jquery-latest.js"></script>
+<script>
+	var timer=null;
+	var nowLeft = 0;
+	var i=0;
+
+	$(".in").html($(".in").html()+$(".in").html()).css("width",$("img").length*$("img").outerWidth()+"px");
+
+	for(var i=0;i<$("img.img1").length/2;i++){ 
+		$("<li>").html($('<img>').attr("src","img/circle2.png").addClass("cir")).appendTo($("ul")); 
+	}
+	$(".cir").eq(0).attr("src","img/circle_hov.png");
+
+	function toR(){
+		if(i==$(".img1").length/2){
+			i=0;
+			$(".in").css("left",0);
+			$(".cir").eq(0).attr("src","img/circle_hov.png");
+		}
+		i++;
+		$(".in").animate({"left":-i*$(".img1").outerWidth()+"px"},500,"linear");
+		var j=i;
+		j= j>3 ? 0 : j;
+		$(".cir").eq(j).attr("src","img/circle_hov.png").parent().siblings().find(".cir").attr("src","img/circle2.png");
+	}
+	function toL(){
+		if(i==0){
+			i=$(".img1").length/2;
+			$(".in").css("left",-i*$(".img1").outerWidth()+"px");
+		}
+		i--;
+		$(".in").animate({"left":-i*$(".img1").outerWidth()+"px"},500,"linear");
+		$(".cir").eq(i).attr("src","img/circle_hov.png").parent().siblings().find(".cir").attr("src","img/circle2.png");
+	}
+	$("i").eq(0).on("click",toL);
+	$("i").eq(1).on("click",toR);
+	play();
+	function play(){
+		clearInterval(timer);
+		timer=setInterval(toR,1500)
+	}
+	 function stop(){
+	 	clearInterval(timer);
+	 }
+
+	 $(".in").hover(stop,play);
+
+	 for(var j=0;j<$(".cir").length;j++){
+	 	$(".cir")[j].index=j;
+	 	$(".cir")[j].onclick=function(){
+	 		// clearInterval(timer);
+	 		console.log(this.index);
+	 		$(".in").css("left",-this.index*$(".img1").outerWidth()+"px");
+	 		$(".cir").eq(this.index).attr("src","img/circle_hov.png").parent().siblings().find(".cir").attr("src","img/circle2.png");
+	 		i=this.index;
+	 	}
+	 }
+
+	 // $(".cir").on("click",function(){
+	 // 	$(".in").css("left",-$(this).index()*$(".img1").outerWidth()+"px");
+	 // 	console.log($(this).index());
+	 // 	// i=$(this).index();
+	 // })
+
+
+	// function roll(){
+	// 	nowLeft = $(".in").position().left;
+	// 	$(".in").css({"left":($(".in").position().left - 400 <= -$(".in").outerWidth()/2 ? 0 : $(".in").position().left - 400 +"px")});
+	// 	$(".img1").eq(-$(".in").position().left/400).animate({opacity : 0.5},1500,"linear").siblings().css("opacity","1");
+	// 	$(".cir").eq(-$(".in").position().left/400).attr("src","img/circle_hov.png").parent().siblings().find("img").attr("src","img/circle2.png");
+	// }
+
+	// function Click(t){
+	// 	$("i").eq(t).on("click",function(){
+	// 		console.log(nowLeft);
+	// 		if(t==0){
+	// 			$(".in").css("left",( $(".in").position().left = nowLeft - 400 <= -$(".in").outerWidth()/2 ? 0 : nowLeft - 400 +"px"));
+	// 		}
+	// 		if(t==1){
+	// 			$(".in").css("left",( $(".in").position().left = nowLeft==0||nowLeft+400 >= $(".in").outerWidth()/2 ? 0 : nowLeft+400 + "px"));
+	// 		}
+	// 		nowLeft = $(".in").position().left;
+	// 	}).on("mouseout",function(){
+	// 		clearInterval(timer);
+	// 		timer=setInterval(roll,1500);
+	// 	})
+	// }     
+</script>
+</body>
+</html>

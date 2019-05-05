@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		username <input type="text">
+		<input type="submit" value="提交">
+		<input type="button" value="删除">
+	</form>
+	<script src="myJs.js"></script>
+	<script>
+		var oF=document.getElementsByTagName('form')[0];
+		var aInput=document.getElementsByTagName('input');
+		aInput[1].onclick=function(){
+			setCookie('username',aInput[0].value,1);
+		}
+		window.onload=function(){
+			if(getCookie('username')){
+				aInput[0].value=getCookie('username');
+			}else{
+				aInput[0].value='';
+			}
+		}
+		aInput[2].onclick=function(){
+			removeCookie('username');
+		}
+	</script>
+</body>
+</html>

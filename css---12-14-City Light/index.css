@@ -1,0 +1,261 @@
+*{margin:0; padding: 0; box-sizing: border-box;}
+image{border: 0;}
+.clearfix:before,.clearfix:after{display: block; content: ""}
+.clearfix:after{clear:both;}
+ul{
+	list-style: none;
+}
+body{
+	background-color: #e2e8de;
+}
+.wrapper{
+	width: 741px;
+	margin:0 auto;
+	border:1px solid white;
+	margin-top: 30px;
+}
+.aside{
+	width: 204px;
+	background-color: #293f64;
+	border-right:6px solid #68748a;
+	padding-top: 32px;
+	padding-bottom: 50px;
+	float: left;
+}
+.img{
+	width: 150px;
+	height: 150px;
+	margin-left: 6px;
+}
+.img img{
+	border-width: 3px 2px;
+	border-style: solid;
+	border-color: white;
+	display: block;
+}
+.title{
+	margin-top: 12px;
+	width: 153px;
+	text-align: center;
+	height: 20px;
+}
+.title span{
+	display: inline-block;
+	color:#ffcd6a;
+}
+.left{
+	width: 15px;
+	height: 13px;
+	background: url(img/banner_left.jpg);
+	float:left;
+	margin-top: 5px;
+}
+.right{
+	width: 13px;
+	height: 13px;
+	background: url(img/banner_right.jpg);
+	margin-top: 5px;
+	float:right;
+}
+.text{
+	padding: 0 45px 0 12px;
+	text-align: center;
+	font-size: 10px;
+	margin-top: 15px;
+	line-height: 14px;
+}
+.t1{
+	color:#eef6ff;
+}
+.t2{
+	color:#ffd280;
+}
+.nav{
+	margin-left:10px;
+	margin-top:38px;
+}
+.nav ul{
+	list-style: none;
+	width: 151px;
+}
+.nav ul li.li_bottom{
+	background-image: url(img/li_bg.jpg);
+	background-repeat: no-repeat;
+	background-position: 7px 12px;
+	height: 32px;
+	border-width: 0 2px 1px 2px;
+	border-style: solid;
+	border-color: #49597a;
+	color: #c1d2f0;
+	line-height: 32px;
+	font-size: 9px;
+	padding-left: 25px;
+}
+.li_top{
+	background-image: url(img/ul-bg.jpg);
+	background-repeat: no-repeat;
+	height: 26px;
+	font-size: 11px;
+	font-weight: bold;
+	color:#fff8fd;
+	padding-left: 20px;
+	line-height: 26px;
+}
+.foot{
+	width: 130px;
+	height: 24px;
+	color: #bbeeff;
+	font-size: 8px;
+	text-align: center;
+	margin-left: 25px;
+	margin-top: 36px;
+}
+.main{
+	float: right;
+	width: 535px;
+	padding:20px 18px 34px 50px;
+	background-color: #ffffff;
+	border-left: 6px solid #d1d6da;
+}
+.navbar ul{
+	list-style: none;
+	/*width: 288px;*/
+	height: 27px;
+}
+.navbar ul li{
+	float:left;
+	width: 50px;
+	margin-left: 26px;
+	font-size: 8px;
+	line-height: 24px;
+}
+.navbar a{
+	text-decoration:none;
+	color:#1c4682;
+	display: block;
+	height: 27px;
+}
+.navbar a:hover{
+	background-image: url(img/li_top_bg.jpg);
+	color:#ac8f6d;
+}
+.text1{
+	background-image: url(img/text1_bg.jpg);
+	width: 457px;
+	height: 194px;
+	background-repeat: no-repeat;
+	margin-top: 12px;
+	padding: 0 6px;
+}
+.banner1{
+	font-size: 12px;
+	color: #926840;
+	display: block;
+	height: 29px;
+	line-height: 29px;
+	font-weight: bold;
+}
+.title1{
+	font-size: 9px;
+	color: #695b5a;
+	display: block;
+	margin-top: 11px;
+	margin-bottom: 14px;
+}
+.text1 img{
+	border: 2px solid #e0d1b4;
+	display: block;
+	float: left;
+	margin-right: 6px;
+}
+.area1{
+	color: #0d0000;
+	font-size: 8px;
+	line-height: 14px;
+}
+.text1 a{
+	text-decoration: none;
+	color: #615c3c;
+	font-size: 8px;
+	margin-left: 74px;
+}
+.text2{
+	width: 457px;
+	height: 156px;
+	margin:46px 0 43px 0;
+	background-image: url(img/text2_bg.jpg);
+	padding: 0 6px;
+
+}
+.banner2{
+	color:#1c2a57;
+	display: block;
+	height: 30px;
+}
+.area2{
+	height: 55px;
+	line-height: 14px;
+	margin-top:10px;
+}
+.text2 span{
+	font-size: 8px;
+	
+}
+.area-1{
+	color:#85879c;
+}
+.area-2{
+	padding-top: 10px;
+	color:#001006;
+}
+.text2 ul{
+	margin-bottom: 17px;
+}
+.text2 ul li{
+	background-image: url(img/li_bg_2.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	height:8px;	
+	font-size: 8px;
+	color:#85879c;
+	margin-top:6px;
+	line-height: 8px;
+}
+.choose{
+	height: 57px;
+	padding-top:5px;
+	margin-left: 28px;
+}
+.text3{
+	width: 457px;
+	height: 194px;
+	background-image: url(img/text3_bg.jpg);
+	padding: 0 6px;
+}
+.banner3{
+	color:#5e4642;
+}
+.text3 p{
+	font-size: 8px;
+	color:#634e49;
+}
+.p1{
+	margin-top:10px;
+	color:#634e49;
+	margin-bottom: 16px;
+}
+.text3 p.area3{
+	color:#000017;
+}
+.text3 ul li{
+	float:left;
+	font-size: 9px;
+	/*width: 78px;*/
+	margin-right: 32px;
+}
+.p2{
+	margin-bottom: 15px;
+}
+.text3 a{
+	color:#634e49; 
+}
